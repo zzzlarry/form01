@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('home');
+//});
+
+Route::get("/", 'testing@index');
+
+Route::post("store", 'testing@store')->name('tests');

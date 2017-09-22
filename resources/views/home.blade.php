@@ -14,38 +14,66 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <style>
+        /* Start with core styles outside of a media query that apply to mobile and up */
+        /* Global typography and design elements, stacked containers */
+        body { font-family: Helvetica, san-serif; }
+        H1 { color: green; }
+        a:link { color:purple; }
+
+        /* Stack the two content containers */
+        .main,
+        .sidebar { display:block; width:100%; }
+
+        /* First breakpoint at 576px */
+        /* Inherits mobile styles, but floats containers to make columns */
+        @media all and (min-width: 36em){
+            .main { float: left; width:60%; }
+            .sidebar { float: left; width:40%; }
+        }
+
+        /* Second breakpoint at 800px */
+        /* Adjusts column proportions, tweaks base H1 */
+        @media all and (min-width: 50em){
+            .main { width:70%; }
+            .sidebar { width:30%; }
+
+            /* You can also tweak any other styles in a breakpoint */
+            H1 { color: blue; font-size:1.2em }
+        }
+
+
     .formp{
-        margin-left: 30px;
-        margin-right: 30px;
+        margin-left: 3%;
+        margin-right: 3%;
         font-size: 22px;
     -webkit-border-top-right-radius: 25px;
     -webkit-border-bottom-right-radius: 20px;
     }
         .checkbox-inline{
-            margin-left: 30px;
-            margin-right: 30px;
+            margin-left: 3%;
+            margin-right: 3%;
             font-size: 22px;
         }
         .radio-inline{
-            margin-left: 30px;
-            margin-right: 30px;
+            margin-left: 3%;
+            margin-right: 3%;
             font-size: 22px;        }
     </style>
     <title>問卷</title>
 </head>
-<body background="../../public/bg01.png" style="background-size: 100% 100%">
+<body background="bg01.png" style="background-size: 100% 100%">
 <p></p>
-<img src="../../public/asia.png" alt="">
+<img src="asia.png" alt="">
 <p></p>
-<form action="store" method="get">
-<p class="formp" style="background-color: lightpink;font-weight: 100">學號<input name="id" type="text" class="form-control" placeholder="Student ID"></p>
+<form action="store" method="post">
+<p for="id" class="formp" style="background-color: lightpink;font-weight: 100">學號<input name="id" type="text" class="form-control" placeholder="Student ID"></p>
 <p class="formp" style="background-color: lightblue">姓名<input name="name" type="text" class="form-control" placeholder="Name"></p>
 <p class="formp" style="background-color: lightseagreen">信箱<input name="email" type="email" class="form-control" placeholder="E-Mail"></p>
 <p class="formp" style="background-color: lightsalmon">系別
     <select name="department">
     <optgroup label="資訊電機學院">
         <option class="form-control" value="生物資訊與醫學工程學系">生物資訊與醫學工程學系</option>
-        <option class="form-control" value="資訊工程學系">資訊工程學系</option>
+        <option class="form-control" selected="true" value="資訊工程學系">資訊工程學系</option>
         <option class="form-control" value="行動商務與多媒體應用學系">行動商務與多媒體應用學系</option>
         <option class="form-control" value="光電與通訊學系">光電與通訊學系</option>
         <option class="form-control" value="資訊傳播學系">資訊傳播學系</option>
@@ -117,6 +145,6 @@
     <input type="radio" name="Q2" id="inlineRadio3" value="option3"> 4
 </label>
 </p>
-<button style="margin-left: 48%" type="submit" class="btn btn-primary">Submit</button></form>
+<button style="margin-left: 75%" type="submit" class="btn btn-primary">Submit</button></form>
 </body>
 </html>
